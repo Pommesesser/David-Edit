@@ -7,13 +7,14 @@ import javax.swing.filechooser.FileNameExtensionFilter
 
 class FileOpener(private val textArea: JTextArea) {
 
-    private val fileChooser = JFileChooser()
+    private val fileChooser = JFileChooser().apply {
+
+        fileSelectionMode = JFileChooser.FILES_ONLY
+        isAcceptAllFileFilterUsed = false
+        fileFilter = FileNameExtensionFilter("Text Files", "txt")
+    }
 
     fun openFileToTextArea() {
-
-        fileChooser.fileSelectionMode = JFileChooser.FILES_ONLY
-        fileChooser.isAcceptAllFileFilterUsed = false
-        fileChooser.fileFilter = FileNameExtensionFilter("Text Files", "txt")
 
         val choice = fileChooser.showOpenDialog(null)
 
