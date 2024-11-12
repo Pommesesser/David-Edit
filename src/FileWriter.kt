@@ -1,10 +1,10 @@
-import java.io.BufferedReader
-import java.io.FileReader
+import java.io.BufferedWriter
+import java.io.FileWriter
 import javax.swing.JFileChooser
 import javax.swing.JTextArea
 import javax.swing.filechooser.FileNameExtensionFilter
 
-class FileOpener(private val textArea: JTextArea) {
+class FileWriter(private val textArea: JTextArea) {
 
     private val fileChooser = JFileChooser().apply {
 
@@ -13,20 +13,20 @@ class FileOpener(private val textArea: JTextArea) {
         fileFilter = FileNameExtensionFilter("Text Files", "txt")
     }
 
-    fun openFile() {
+    fun saveFile() {
 
-        val choice = fileChooser.showOpenDialog(null)
+        val choice = fileChooser.showSaveDialog(null)
 
         if (choice == JFileChooser.APPROVE_OPTION) {
 
-            writeSelectedFileToTextArea()
+            writeTextAreaToFile()
         }
     }
 
-    private fun writeSelectedFileToTextArea() {
+    private fun writeTextAreaToFile() {
 
-        val reader = BufferedReader(FileReader(fileChooser.selectedFile))
-        textArea.read(reader, null)
-        reader.close()
+        val writer = BufferedWriter(FileWriter(fileChooser.selectedFile))
+        textArea.write(writer)
+        writer.close()
     }
 }

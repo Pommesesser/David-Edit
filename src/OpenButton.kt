@@ -10,7 +10,7 @@ class OpenButton(private val textArea: JTextArea) {
 
         button.addActionListener {
 
-            fileOpener.openFileToTextArea()
+            fileOpener.openFile()
         }
     }
 
