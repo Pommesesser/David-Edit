@@ -1,7 +1,7 @@
 import java.awt.Font
 import javax.swing.JTextArea
 
-class TextPanel {
+class TextArea {
 
     private val textArea = JTextArea()
 

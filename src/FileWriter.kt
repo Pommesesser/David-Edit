@@ -1,4 +1,5 @@
 import java.io.BufferedWriter
+import java.io.File
 import java.io.FileWriter
 import javax.swing.JFileChooser
 import javax.swing.JTextArea
@@ -19,7 +20,16 @@ class FileWriter(private val textArea: JTextArea) {
 
         if (choice == JFileChooser.APPROVE_OPTION) {
 
+            selectedFileToTextFile()
             writeTextAreaToFile()
+        }
+    }
+
+    private fun selectedFileToTextFile() {
+
+        if (!fileChooser.selectedFile.name.endsWith(".txt", ignoreCase = true)) {
+
+            fileChooser.selectedFile = File("${fileChooser.selectedFile.absolutePath}.txt")
         }
     }
 

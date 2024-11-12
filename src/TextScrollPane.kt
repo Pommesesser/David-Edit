@@ -4,15 +4,15 @@ import javax.swing.JTextArea
 
 class TextScrollPane {
 
-    private val textPanel = TextPanel()
-    private val scrollPane = JScrollPane(textPanel.getJTextAreaComponent())
+    private val textArea = TextArea()
+    private val scrollPane = JScrollPane(textArea.getJTextAreaComponent())
 
     init {
 
         scrollPane.verticalScrollBarPolicy = JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED
         scrollPane.horizontalScrollBarPolicy = JScrollPane.HORIZONTAL_SCROLLBAR_NEVER
 
-        scrollPane.verticalScrollBar.unitIncrement = textPanel.getFontHeight()
+        scrollPane.verticalScrollBar.unitIncrement = textArea.getFontHeight()
         scrollPane.border = BorderFactory.createEmptyBorder()
     }
 
@@ -23,6 +23,6 @@ class TextScrollPane {
 
     fun getJTextAreaComponent(): JTextArea {
 
-        return textPanel.getJTextAreaComponent()
+        return textArea.getJTextAreaComponent()
     }
 }
