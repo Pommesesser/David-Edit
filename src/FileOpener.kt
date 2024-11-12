@@ -1,5 +1,4 @@
 import java.io.BufferedReader
-import java.io.File
 import java.io.FileReader
 import javax.swing.JFileChooser
 import javax.swing.JTextArea
@@ -20,13 +19,13 @@ class FileOpener(private val textArea: JTextArea) {
 
         if (choice == JFileChooser.APPROVE_OPTION) {
 
-            writeFileToTextArea(fileChooser.selectedFile)
+            writeSelectedFileToTextArea()
         }
     }
 
-    private fun writeFileToTextArea(file: File) {
+    private fun writeSelectedFileToTextArea() {
 
-        val reader = BufferedReader(FileReader(file))
+        val reader = BufferedReader(FileReader(fileChooser.selectedFile))
         textArea.read(reader, null)
         reader.close()
     }
