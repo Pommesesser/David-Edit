@@ -1,1 +1,2 @@
-You need FlatLaf
+Text Editor nur für mich.
+Braucht FlatDarkLaf
